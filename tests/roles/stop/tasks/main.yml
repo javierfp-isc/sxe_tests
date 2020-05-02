@@ -1,0 +1,7 @@
+---
+# tasks file for roles/stop
+- name: PARAR CONTAINERS
+  shell: "docker stop {{ item }}"
+  loop: "{{ containers }}"
+  loop_control:
+   label: "PARANDO {{ item }}" 

@@ -1,0 +1,13 @@
+---
+#tasks file for roles/start
+- name: ARRANCAR CONTAINERS
+  shell: "docker start {{ item }}"
+  loop: "{{ containers }}"
+  loop_control:
+   label: "ARRANCANDO {{ item }}"
+   
+# - name: DEBUG CONTAINERS
+#   debug: msg="{{ item }}"
+#   loop: "{{ containers }}"
+#   loop_control:
+#    label: "ARRANCANDO {{ item }}"

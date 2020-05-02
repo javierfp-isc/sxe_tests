@@ -1,0 +1,22 @@
+---
+# tasks file for roles/tests  
+  - name:   
+    block:
+    - name: EJECUTAR COMANDOS
+      vars:
+       comando: "docker exec {{ item.0.container }} {{ item.1.comando }} | grep {{ item.1.resultado }}"
+      shell: "{{ comando }}"
+      register: testresult
+      changed_when:
+       - '"failed" in testresult.stderr'
+       - result.rc != 0
+      loop: "{{ lookup('subelements', comandos, 'comandos', {'skip_missing': True}) }}"
+      loop_control:
+       label: "EJECUTANDO {{ comando }}"
+      no_log: False
+    - name: TEST PASADOS
+      debug: msg="ENHORABUENA!. Has superado todos los test"
+    rescue:
+     - debug: msg="LO SIENTO!. No has superado todos los test"
+       register: testerror
+    no_log: False

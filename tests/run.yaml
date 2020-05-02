@@ -1,0 +1,5 @@
+- name: Tests implantacion_1
+  hosts: localhost
+  roles:
+    - role: implantacion_1
+    - role: stop
