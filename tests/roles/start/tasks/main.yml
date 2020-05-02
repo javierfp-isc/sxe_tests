@@ -5,9 +5,4 @@
   loop: "{{ containers }}"
   loop_control:
    label: "ARRANCANDO {{ item }}"
-   
-# - name: DEBUG CONTAINERS
-#   debug: msg="{{ item }}"
-#   loop: "{{ containers }}"
-#   loop_control:
-#    label: "ARRANCANDO {{ item }}"
+

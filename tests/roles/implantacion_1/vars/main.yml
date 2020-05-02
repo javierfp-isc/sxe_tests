@@ -1,6 +1,8 @@
 ---
 # vars file for roles/implantacion_1
+log: log/report.log
 tests_url: http://localhost:8069/sxe_tests/implantacion
+test_error:
 #Comandos de test a ejecutar
 tests:
  - container: "odoo_1container_odoo_1"

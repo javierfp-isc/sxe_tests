@@ -1,5 +1,5 @@
  #Variables genéricas (NO TOCAR) 
- log: log/report.log
+ logfile: log/report.log
  nota: 0
  tests_url: http://localhost:8069/sxe_tests/implantacion
  #session_id_8069: 0

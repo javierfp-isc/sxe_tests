@@ -6,9 +6,9 @@
       vars:
        comando: "docker exec {{ item.0.container }} {{ item.1.comando }} | grep {{ item.1.resultado }}"
       shell: "{{ comando }}"
-      register: testresult
+      register: test_result
       changed_when:
-       - '"failed" in testresult.stderr'
+       - '"failed" in test_result.stderr'
        - result.rc != 0
       loop: "{{ lookup('subelements', comandos, 'comandos', {'skip_missing': True}) }}"
       loop_control:
@@ -18,5 +18,39 @@
       debug: msg="ENHORABUENA!. Has superado todos los test"
     rescue:
      - debug: msg="LO SIENTO!. No has superado todos los test"
-       register: testerror
+       register: test_error
     no_log: False
+
+  - name: CALCULAR NOTA
+    set_fact:
+     NOTA: "{{ (NOTA | int) + (item.item.1.puntuacion | int)  }}"
+    loop: "{{ test_result.results }}"
+    loop_control:
+     label: "PROCESANDO {{ item.item.1.comando }}"
+    when: item.failed == false
+
+  - name: MOSTRAR NOTA
+    debug: msg="{{ NOTA }}"
+    no_log: False
+
+  - name: ESCRIBIR LOG
+    shell: |
+     tee -a {{ log }} << END
+     ### COMANDO: "{{ item.cmd }}"
+
+     ----->SALIDA: {{ item.stdout }}
+
+     ----->CÓDIGO SALIDA: {{ item.rc }}
+
+     END
+     if [ "{{ item.rc }}" -gt 0 ];then echo "----->ERROR! {{ item.stderr }}" >> "{{ log }}";fi
+     if [ "{{ item.rc }}" -eq 0 ]; then echo "----->PUNTUACIÓN: {{ item.item.1.puntuacion }}" >> "{{ log }}";fi
+    loop: "{{ test_result.results }}"
+    ignore_errors: yes
+
+  - name: ESCRIBIR NOTA LOG
+    shell: |
+     tee -a {{ log }} << END
+
+     ### NOTA DE LA TAREA: {{ NOTA }}
+     END
