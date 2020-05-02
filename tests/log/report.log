@@ -151,3 +151,54 @@
 ----->ERROR! 
 
 ### NOTA DE LA TAREA: 8
+### COMANDO: "docker exec odoo_1container_odoo_1 service odoo.sh status | grep RUNNING"
+
+----->SALIDA: [32m* RUNNING(B[m
+
+----->CÓDIGO SALIDA: 0
+
+----->PUNTUACIÓN: 2
+### COMANDO: "docker exec odoo_1container_odoo_1 cat /opt/odoo/conf/odoo.conf | grep addons_path | grep /opt/odoo/src/odoo"
+
+----->SALIDA: 
+
+----->CÓDIGO SALIDA: 1
+
+----->ERROR! 
+### COMANDO: "docker exec odoo_1container_odoo_1 curl -X GET "http://localhost:8069/sxe_tests/implantacion?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=sale_management" | grep "EXITO""
+
+----->SALIDA: EXITO
+
+----->CÓDIGO SALIDA: 0
+
+----->PUNTUACIÓN: 2
+### COMANDO: "docker exec odoo_2container_odoo_1 service odoo.sh status | grep RUNNING"
+
+----->SALIDA: [32m* RUNNING(B[m
+
+----->CÓDIGO SALIDA: 0
+
+----->PUNTUACIÓN: 2
+### COMANDO: "docker exec odoo_2container_odoo_1 curl -X GET "http://localhost:8069/sxe_tests/implantacion?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=crm" | grep "EXITO""
+
+----->SALIDA: EXITO
+
+----->CÓDIGO SALIDA: 0
+
+----->PUNTUACIÓN: 1
+### COMANDO: "docker exec odoo_2container_odoo_1 curl -X GET "http://localhost:8069/sxe_tests/implantacion?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=website" | grep "EXITO""
+
+----->SALIDA: EXITO
+
+----->CÓDIGO SALIDA: 0
+
+----->PUNTUACIÓN: 1
+### COMANDO: "docker exec odoo_2container_odoo_1 cat /opt/odoo/conf/odoo.conf | grep addons_path | grep /opt/odoo/src/server-ux"
+
+----->SALIDA: 
+
+----->CÓDIGO SALIDA: 1
+
+----->ERROR! 
+
+### NOTA DE LA TAREA: 8

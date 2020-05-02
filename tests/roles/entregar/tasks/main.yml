@@ -1,17 +1,16 @@
 ---
 # tasks file for roles/entregar
 
-  - name: ENTREGAR TAREA
-    debug: msg="Se va a crear incidencia con el resultado de la tarea"
-  - name: CREAR INCIDENCIA EN GITLAB   
-    uri:    
-     url: "{{ gitlab_url }}/api/v4/projects/{{ gitlab_project_id }}/issues"
-     headers:
-      PRIVATE-TOKEN: "{{ gitlab_token }}"     
-     method:  POST
-     validate_certs: False
-     body: "title={{ nombre_alumno }}_{{ practica }}&description={{ item }}&labels={{ practica }}"
-    with_file:
-    - "{{ logfile }}"
-    failed_when:
-     - '1 == 0'
+  - name: 
+    block:       
+     - name : ENTREGAR TAREA
+       include_tasks: tasks/entregar.yaml
+       #Cuando pasan todos los test anteriores se entrega
+       when: testerror is undefined
+    always:
+     - name : FORZAR ENTREGA DE TAREA
+       include_tasks: tasks/entregar.yaml
+       #Cuando se pase el parámetro force=yes se entrega la tarea
+       when: (testerror is defined) and (force is defined) and (force == 'yes')
+    when: (entregar is defined) and (entregar == 'yes')
+    no_log: False
