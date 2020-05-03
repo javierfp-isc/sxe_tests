@@ -1,6 +1,3 @@
 ---
 # vars file for roles/entregar
-nombre_alumno: El Gran Wyoming
-gitlab_url: https://gitlab.local
-gitlab_token: 9HMCTHQDCJAfeqsPjtzY
-gitlab_project_id: practicas_si%2Fentregas
+

@@ -1,6 +1,7 @@
 
 - name: Tests implantacion_1
   hosts: localhost
+  
   vars:
    #Archivo de log del report de la tarea
    REPORT: log/report.log
@@ -10,5 +11,14 @@
    TESTERROR:
    #Almacena resultados de tests
    TESTRESULT:
+   #Pon aquí el nombre para la entrega
+   NOMBREALUMNO: El Gran Wyoming
+   #URL del servidor gitlab
+   GITLABURL: https://gitlab.local
+   #Token para enviar a gitlab
+   GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY
+   #Projectid del gitlab project de entregas
+   GITLABPROJECTID: practicas_si%2Fentregas
+
   roles:
     - role: implantacion_1

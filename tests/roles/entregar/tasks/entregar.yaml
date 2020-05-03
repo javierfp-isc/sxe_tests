@@ -3,12 +3,12 @@
     debug: msg="Se va a crear incidencia con el resultado de la tarea"
   - name: CREAR INCIDENCIA EN GITLAB   
     uri:    
-     url: "{{ gitlab_url }}/api/v4/projects/{{ gitlab_project_id }}/issues"
+     url: "{{ GITLABURL }}/api/v4/projects/{{ GITLABPROJECTID }}/issues"
      headers:
-      PRIVATE-TOKEN: "{{ gitlab_token }}"     
+      PRIVATE-TOKEN: "{{ GITLABTOKEN }}"     
      method:  POST
      validate_certs: False
-     body: "title={{ nombre_alumno }}_{{ practica }}&description={{ item }}&labels={{ practica }}"
+     body: "title={{ NOMBREALUMNO }}_{{ practica }}&description={{ item }}&labels={{ practica }}"
     with_file:
     - "{{ REPORT }}"
     failed_when:
