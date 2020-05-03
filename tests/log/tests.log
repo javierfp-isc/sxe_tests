@@ -140,3 +140,4 @@
 2020-05-03 18:37:23,441 p=17589 u=javierfp n=ansible | changed: [localhost] => (item=PARANDO odoo_2container_postgres_1)
 2020-05-03 18:37:23,443 p=17589 u=javierfp n=ansible | PLAY RECAP **************************************************************************************************************************************************************************************
 2020-05-03 18:37:23,444 p=17589 u=javierfp n=ansible | localhost                  : ok=12   changed=5    unreachable=0    failed=0    skipped=1    rescued=1    ignored=0   
+2020-05-03 19:03:54,814 p=25493 u=javierfp n=ansible | - Role roles/tarea_modificar was created successfully

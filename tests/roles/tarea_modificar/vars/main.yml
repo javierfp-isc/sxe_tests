@@ -1,0 +1,19 @@
+---
+# vars file for roles/tarea_modificar
+iam: root
+#Comandos de test a ejecutar
+tests:
+ - container: "container1"
+   comandos:
+   - nombre: Nombre del test
+     comando: "ls -l /" 
+     resultado: "etc"
+     puntuacion: 2  
+   #etc 
+ - container: "container2"
+   comandos:
+   - nombre: Whoami
+     comando: "whoami"
+     resultado: "{{ iam }}"
+     puntuacion: 5
+   #etc.
