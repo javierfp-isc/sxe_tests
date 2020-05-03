@@ -1,5 +1,10 @@
 ---
 #tasks file for roles/start
+- name: LIMPIAR LOGS
+  shell: |
+   echo "" > "{{ LOG }}"
+   echo "" > "{{ REPORT }}"
+
 - name: ARRANCAR CONTAINERS
   shell: "docker start {{ item }}"
   loop: "{{ containers }}"

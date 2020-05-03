@@ -1,16 +1,15 @@
 ---
 # tasks file for roles/entregar
-
   - name: 
     block:       
      - name : ENTREGAR TAREA
        include_tasks: tasks/entregar.yaml
        #Cuando pasan todos los test anteriores se entrega
-       when: testerror is undefined
+       when: not TESTERROR
     always:
      - name : FORZAR ENTREGA DE TAREA
        include_tasks: tasks/entregar.yaml
        #Cuando se pase el parámetro force=yes se entrega la tarea
-       when: (testerror is defined) and (force is defined) and (force == 'yes')
+       when: TESTERROR and (force is defined) and (force == 'yes')
     when: (entregar is defined) and (entregar == 'yes')
     no_log: False

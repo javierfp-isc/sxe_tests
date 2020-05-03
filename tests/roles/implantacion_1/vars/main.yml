@@ -1,39 +1,40 @@
 ---
 # vars file for roles/implantacion_1
-log: log/report.log
 tests_url: http://localhost:8069/sxe_tests/implantacion
-test_error:
+login: --data-urlencode login=admin
+password: --data-urlencode password=abc123.
+test_modulo_instalado: --data-urlencode metodo=test_modulo_instalado
 #Comandos de test a ejecutar
 tests:
  - container: "odoo_1container_odoo_1"
    comandos:
-   - nombre: odoo running
+   - nombre: Odoo running
      comando: "service odoo.sh status"
-     resultado: "RUNNING"
+     resultado: "Running"
      puntuacion: 2
-   - nombre: addons_path correcto
+   - nombre: Addons_path correcto
      comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
      resultado: "/opt/odoo/src/odoo"
      puntuacion: 1
-   - nombre: test módulo ventas
-     comando: "curl -X GET \"{{ tests_url }}?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=sale_management\""
+   - nombre: Módulo ventas instalado
+     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=sale_management"
      resultado: "\"EXITO\""
      puntuacion: 2
  - container: "odoo_2container_odoo_1"
    comandos:
-   - nombre: odoo running
+   - nombre: Odoo running
      comando: "service odoo.sh status"
-     resultado: "RUNNING"
+     resultado: "Running"
      puntuacion: 2
-   - nombre: test módulo CRM
-     comando: "curl -X GET \"{{ tests_url }}?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=crm\""
+   - nombre: Módulo CRM instalado
+     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=crm"
      resultado: "\"EXITO\""
      puntuacion: 1
-   - nombre: test módulo website
-     comando: "curl -X GET \"{{ tests_url }}?login=admin&password=abc123.&metodo=test_modulo_instalado&modulo=website\""
+   - nombre: Módulo website instalado
+     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
      resultado: "\"EXITO\""
      puntuacion: 1
-   - nombre: addons_path OCA modules
+   - nombre: Addons_path OCA modules
      comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
      resultado: "/opt/odoo/src/server-ux"
      puntuacion: 1

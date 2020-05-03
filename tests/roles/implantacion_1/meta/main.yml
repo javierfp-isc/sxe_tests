@@ -49,8 +49,8 @@ galaxy_info:
 
 dependencies:
 - { role: start, containers: [odoo_1container_odoo_1, odoo_2container_odoo_1, odoo_2container_postgres_1]}
-- { role: tests, comandos: "{{ tests }}", logfile: "{{ log }}"}
-- { role: entregar, testerror: "{{ test_error }}", logfile: "{{ log }}", practica: implantacion_1}
+- { role: tests, comandos: "{{ tests }}"}
+- { role: entregar, practica: implantacion_1}
 #- { role: stop, containers: [odoo_1container_odoo_1, odoo_2container_odoo_1, odoo_2container_postgres_1]}
 
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
