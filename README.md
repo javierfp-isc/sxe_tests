@@ -67,6 +67,18 @@ En el directorio **tests** del repositorio nos encontramos la infraestructura pa
 
 Los tests son un conjunto de pruebas que se lanzarán de forma automática en el escenario y que comprobarán si has realizado correctamente los pasos y ejercicios indicados en la práctica.
 
+### Variables para la ejecución
+
+Dentro del archivo **test.yaml**  hay una lista de variables que deberéis especificar para cada práctica. El tipo y número dependerá de la misma, pero como mínimo deberéis indicar vuestro **nombre** y **el token de acceso** a gitlab de vuestro usuario.
+
+`#Variables que debe especificar el alumno`
+
+`NOMBREALUMNO: Javier Fernández Peón`
+
+`GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY`
+
+*NOTAD que al ser formato YAML la sintaxis es del tipo clave: valor*
+
 ### Ejecución de los tests
 
 Una vez instalado el módulo anterir para lanzar los test nos situamos dentro del directorio **tests** del repositorio y lanzamos desde la terminal el comando:

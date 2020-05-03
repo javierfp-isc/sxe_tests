@@ -10,15 +10,17 @@
    #Recoge si hay errores en tests
    TESTERROR:
    #Almacena resultados de tests
-   TESTRESULT:
-   #Pon aquí el nombre para la entrega
-   NOMBREALUMNO: El Gran Wyoming
+   TESTRESULT:  
    #URL del servidor gitlab
-   GITLABURL: https://gitlab.local
-   #Token para enviar a gitlab
-   GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY
+   GITLABURL: https://gitlab.local   
    #Projectid del gitlab project de entregas
    GITLABPROJECTID: practicas_si%2Fentregas
+   
+   #VARIABLES A DEFINIR POR EL USUARIO
+   #Pon aquí el nombre para la entrega
+   NOMBREALUMNO: El Gran Wyoming
+   #Token para enviar a gitlab
+   GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY
 
   roles:
     - role: implantacion_1
