@@ -1,5 +1,5 @@
 ---
-# vars file for roles/implantacion_1
+# vars file for roles/implantacion_2
 tests_url: http://localhost:8069/sxe_tests/implantacion
 login: --data-urlencode login=admin
 password: --data-urlencode password=abc123.
