@@ -37,19 +37,19 @@
     shell: |
      cat >> {{ REPORT }} << END     
      ***********************************************
-     TEST: {{ item.item.1.nombre }}
+     ### TEST: {{ item.item.1.nombre }}
 
-     ----->CONTAINER: {{ item.item.0.container }}
+     **CONTAINER:** {{ item.item.0.container }}
 
-     ----->COMANDO: {{ item.item.1.comando }}
+     **COMANDO:** {{ item.item.1.comando }}
 
-     ----->SALIDA: {{ item.stdout }}
+     **SALIDA:** {{ item.stdout }}
 
-     ----->CÓDIGO SALIDA: {{ item.rc }}
+     **CÓDIGO SALIDA:** {{ item.rc }}
 
      END
-     if [ "{{ item.rc }}" -gt 0 ];then echo "----->ERROR! {{ item.stderr }}" >> "{{ REPORT }}";fi
-     if [ "{{ item.rc }}" -eq 0 ]; then echo "----->PUNTUACIÓN: {{ item.item.1.puntuacion }}" >> "{{ REPORT }}";fi
+     if [ "{{ item.rc }}" -gt 0 ];then echo "**ERROR!** {{ item.stderr }}" >> "{{ REPORT }}";fi
+     if [ "{{ item.rc }}" -eq 0 ]; then echo "**PUNTUACIÓN:** {{ item.item.1.puntuacion }}" >> "{{ REPORT }}";fi
     loop: "{{ TESTRESULT.results }}"
     ignore_errors: yes
 

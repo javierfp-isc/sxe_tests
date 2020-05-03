@@ -1,88 +1,88 @@
 
 ***********************************************
-TEST: Odoo running
+### TEST: Odoo running
 
------>CONTAINER: odoo_1container_odoo_1
+**CONTAINER:** odoo_1container_odoo_1
 
------>COMANDO: service odoo.sh status
+**COMANDO:** service odoo.sh status
 
------>SALIDA: FINE, 1 ODOO-SERVER is Running.
+**SALIDA:** FINE, 1 ODOO-SERVER is Running.
 
------>CÓDIGO SALIDA: 0
+**CÓDIGO SALIDA:** 0
 
------>PUNTUACIÓN: 2
+**PUNTUACIÓN:** 2
 ***********************************************
-TEST: Addons_path correcto
+### TEST: Addons_path correcto
 
------>CONTAINER: odoo_1container_odoo_1
+**CONTAINER:** odoo_1container_odoo_1
 
------>COMANDO: cat /opt/odoo/conf/odoo.conf | grep addons_path
+**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
 
------>SALIDA: 
+**SALIDA:** 
 
------>CÓDIGO SALIDA: 1
+**CÓDIGO SALIDA:** 1
 
------>ERROR! 
+**ERROR!** 
 ***********************************************
-TEST: Módulo ventas instalado
+### TEST: Módulo ventas instalado
 
------>CONTAINER: odoo_1container_odoo_1
+**CONTAINER:** odoo_1container_odoo_1
 
------>COMANDO: curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=sale_management
+**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=sale_management
 
------>SALIDA: EXITO
+**SALIDA:** EXITO
 
------>CÓDIGO SALIDA: 0
+**CÓDIGO SALIDA:** 0
 
------>PUNTUACIÓN: 2
+**PUNTUACIÓN:** 2
 ***********************************************
-TEST: Odoo running
+### TEST: Odoo running
 
------>CONTAINER: odoo_2container_odoo_1
+**CONTAINER:** odoo_2container_odoo_1
 
------>COMANDO: service odoo.sh status
+**COMANDO:** service odoo.sh status
 
------>SALIDA: FINE, 1 ODOO-SERVER is Running.
+**SALIDA:** FINE, 1 ODOO-SERVER is Running.
 
------>CÓDIGO SALIDA: 0
+**CÓDIGO SALIDA:** 0
 
------>PUNTUACIÓN: 2
+**PUNTUACIÓN:** 2
 ***********************************************
-TEST: Módulo CRM instalado
+### TEST: Módulo CRM instalado
 
------>CONTAINER: odoo_2container_odoo_1
+**CONTAINER:** odoo_2container_odoo_1
 
------>COMANDO: curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
+**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
 
------>SALIDA: EXITO
+**SALIDA:** EXITO
 
------>CÓDIGO SALIDA: 0
+**CÓDIGO SALIDA:** 0
 
------>PUNTUACIÓN: 1
+**PUNTUACIÓN:** 1
 ***********************************************
-TEST: Módulo website instalado
+### TEST: Módulo website instalado
 
------>CONTAINER: odoo_2container_odoo_1
+**CONTAINER:** odoo_2container_odoo_1
 
------>COMANDO: curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
+**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
 
------>SALIDA: EXITO
+**SALIDA:** EXITO
 
------>CÓDIGO SALIDA: 0
+**CÓDIGO SALIDA:** 0
 
------>PUNTUACIÓN: 1
+**PUNTUACIÓN:** 1
 ***********************************************
-TEST: Addons_path OCA modules
+### TEST: Addons_path OCA modules
 
------>CONTAINER: odoo_2container_odoo_1
+**CONTAINER:** odoo_2container_odoo_1
 
------>COMANDO: cat /opt/odoo/conf/odoo.conf | grep addons_path
+**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
 
------>SALIDA: 
+**SALIDA:** 
 
------>CÓDIGO SALIDA: 1
+**CÓDIGO SALIDA:** 1
 
------>ERROR! 
+**ERROR!** 
 
 ### NOTA DE LA TAREA: 8
 
