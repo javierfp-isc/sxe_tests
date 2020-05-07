@@ -1,34 +1,10 @@
 
 ***********************************************
-### TEST: Odoo running
+### TEST: Módulo website en thomson.sxe
 
-**CONTAINER:** odoo_1container_odoo_1
+**CONTAINER:** nginx_odoo_tarea_nginx_1
 
-**COMANDO:** service odoo.sh status
-
-**SALIDA:** FINE, 1 ODOO-SERVER is Running.
-
-**CÓDIGO SALIDA:** 0
-
-**PUNTUACIÓN:** 2
-***********************************************
-### TEST: Addons_path correcto
-
-**CONTAINER:** odoo_1container_odoo_1
-
-**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
-
-**SALIDA:** 
-
-**CÓDIGO SALIDA:** 1
-
-**ERROR!** 
-***********************************************
-### TEST: Módulo ventas instalado
-
-**CONTAINER:** odoo_1container_odoo_1
-
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=sale_management
+**COMANDO:** curl -G --insecure -L  "https://thomson.sxe/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
 
 **SALIDA:** EXITO
 
@@ -36,53 +12,89 @@
 
 **PUNTUACIÓN:** 2
 ***********************************************
-### TEST: Odoo running
+### TEST: Módulo CRM en ritchie.sxe
 
-**CONTAINER:** odoo_2container_odoo_1
+**CONTAINER:** nginx_odoo_tarea_nginx_1
 
-**COMANDO:** service odoo.sh status
+**COMANDO:** curl -G --insecure -L  "https://ritchie.sxe/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
 
-**SALIDA:** FINE, 1 ODOO-SERVER is Running.
+**SALIDA:** EXITO
 
 **CÓDIGO SALIDA:** 0
 
 **PUNTUACIÓN:** 2
 ***********************************************
-### TEST: Módulo CRM instalado
+### TEST: Parando odoo1
 
-**CONTAINER:** odoo_2container_odoo_1
+**CONTAINER:** nginx_odoo_tarea_odoo1_1
 
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
+**COMANDO:** /etc/init.d/odoo.sh stop
+
+**SALIDA:** [32m                                                                         [ OK ] (B[m
+
+**CÓDIGO SALIDA:** 0
+
+**PUNTUACIÓN:** 0.5
+***********************************************
+### TEST: Parando odoo3
+
+**CONTAINER:** nginx_odoo_tarea_odoo3_1
+
+**COMANDO:** /etc/init.d/odoo.sh stop
+
+**SALIDA:** [32m                                                                         [ OK ] (B[m
+
+**CÓDIGO SALIDA:** 0
+
+**PUNTUACIÓN:** 0.5
+***********************************************
+### TEST: Módulo website en thomson.sxe en HA
+
+**CONTAINER:** nginx_odoo_tarea_nginx_1
+
+**COMANDO:** curl -G --insecure -L  "https://thomson.sxe/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
 
 **SALIDA:** EXITO
 
 **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 1
+**PUNTUACIÓN:** 2
 ***********************************************
-### TEST: Módulo website instalado
+### TEST: Módulo CRM en ritchie.sxe en HA
 
-**CONTAINER:** odoo_2container_odoo_1
+**CONTAINER:** nginx_odoo_tarea_nginx_1
 
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
+**COMANDO:** curl -G --insecure -L  "https://ritchie.sxe/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
 
 **SALIDA:** EXITO
 
 **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 1
+**PUNTUACIÓN:** 2
 ***********************************************
-### TEST: Addons_path OCA modules
+### TEST: Levantando odoo1
 
-**CONTAINER:** odoo_2container_odoo_1
+**CONTAINER:** nginx_odoo_tarea_odoo1_1
 
-**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
+**COMANDO:** /etc/init.d/odoo.sh start
 
-**SALIDA:** 
+**SALIDA:** [32m                                                                         [ OK ] (B[m
 
-**CÓDIGO SALIDA:** 1
+**CÓDIGO SALIDA:** 0
 
-**ERROR!** 
+**PUNTUACIÓN:** 0.5
+***********************************************
+### TEST: Levantando odoo3
 
-### NOTA DE LA TAREA: 8
+**CONTAINER:** nginx_odoo_tarea_odoo3_1
+
+**COMANDO:** /etc/init.d/odoo.sh start
+
+**SALIDA:** [32m                                                                         [ OK ] (B[m
+
+**CÓDIGO SALIDA:** 0
+
+**PUNTUACIÓN:** 0.5
+
+### NOTA DE LA TAREA: 10.0
 

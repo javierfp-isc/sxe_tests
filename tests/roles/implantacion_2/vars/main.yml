@@ -1,40 +1,61 @@
 ---
 # vars file for roles/implantacion_2
-tests_url: http://localhost:8069/sxe_tests/implantacion
+thomson_url: https://thomson.sxe/sxe_tests/implantacion
+ritchie_url: https://ritchie.sxe/sxe_tests/implantacion
 login: --data-urlencode login=admin
 password: --data-urlencode password=abc123.
 test_modulo_instalado: --data-urlencode metodo=test_modulo_instalado
 #Comandos de test a ejecutar
 tests:
- - container: "odoo_1container_odoo_1"
+ - container: "nginx_odoo_tarea_nginx_1"
    comandos:
-   - nombre: Odoo running
-     comando: "service odoo.sh status"
-     resultado: "Running"
-     puntuacion: 2
-   - nombre: Addons_path correcto
-     comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
-     resultado: "/opt/odoo/src/odoo"
-     puntuacion: 1
-   - nombre: Módulo ventas instalado
-     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=sale_management"
+   - nombre: Módulo website en thomson.sxe
+     comando: "curl -G --insecure -L  \"{{ thomson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
      resultado: "\"EXITO\""
      puntuacion: 2
- - container: "odoo_2container_odoo_1"
+   - nombre: Módulo CRM en ritchie.sxe
+     comando: "curl -G --insecure -L  \"{{ ritchie_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=crm"
+     resultado: "\"EXITO\""
+     puntuacion: 2
+ - container: "nginx_odoo_tarea_odoo1_1"
    comandos:
-   - nombre: Odoo running
-     comando: "service odoo.sh status"
-     resultado: "Running"
+   - nombre: Parando odoo1
+     comando: "/etc/init.d/odoo.sh stop"
+     resultado: "\"OK\""
+     puntuacion: 0.5
+  #  - nombre: Espera para detención
+  #    comando: "/usr/bin/sleep 3"
+  #    resultado: "\"\""
+  #    puntuacion: 0
+ - container: "nginx_odoo_tarea_odoo3_1"
+   comandos:
+   - nombre: Parando odoo3
+     comando: "/etc/init.d/odoo.sh stop"
+     resultado: "\"OK\""
+     puntuacion: 0.5
+  #  - nombre: Espera para detención
+  #    comando: "/usr/bin/sleep 3"
+  #    resultado: "\"\""
+  #    puntuacion: 0
+ - container: "nginx_odoo_tarea_nginx_1"
+   comandos:
+   - nombre: Módulo website en thomson.sxe en HA
+     comando: "curl -G --insecure -L  \"{{ thomson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
+     resultado: "\"EXITO\""
      puntuacion: 2
-   - nombre: Módulo CRM instalado
-     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=crm"
+   - nombre: Módulo CRM en ritchie.sxe en HA
+     comando: "curl -G --insecure -L  \"{{ ritchie_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=crm"
      resultado: "\"EXITO\""
-     puntuacion: 1
-   - nombre: Módulo website instalado
-     comando: "curl -G \"{{ tests_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
-     resultado: "\"EXITO\""
-     puntuacion: 1
-   - nombre: Addons_path OCA modules
-     comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
-     resultado: "/opt/odoo/src/server-ux"
-     puntuacion: 1
+     puntuacion: 2
+ - container: "nginx_odoo_tarea_odoo1_1"
+   comandos:
+   - nombre: Levantando odoo1
+     comando: "/etc/init.d/odoo.sh start"
+     resultado: "\"OK\""
+     puntuacion: 0.5
+ - container: "nginx_odoo_tarea_odoo3_1"
+   comandos:
+   - nombre: Levantando odoo3
+     comando: "/etc/init.d/odoo.sh start"
+     resultado: "\"OK\""
+     puntuacion: 0.5

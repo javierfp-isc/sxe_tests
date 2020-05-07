@@ -1,5 +1,5 @@
 
-- name: Tests implantacion_1
+- name: Tests implantacion_2
   hosts: localhost
   
   vars:
@@ -23,4 +23,4 @@
    GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY
 
   roles:
-    - role: implantacion_1
+    - role: implantacion_2
