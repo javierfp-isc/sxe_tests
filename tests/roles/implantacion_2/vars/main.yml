@@ -23,20 +23,12 @@ tests:
      comando: "/etc/init.d/odoo.sh stop"
      resultado: "\"OK\""
      puntuacion: 0.5
-  #  - nombre: Espera para detención
-  #    comando: "/usr/bin/sleep 3"
-  #    resultado: "\"\""
-  #    puntuacion: 0
  - container: "nginx_odoo_tarea_odoo3_1"
    comandos:
    - nombre: Parando odoo3
      comando: "/etc/init.d/odoo.sh stop"
      resultado: "\"OK\""
      puntuacion: 0.5
-  #  - nombre: Espera para detención
-  #    comando: "/usr/bin/sleep 3"
-  #    resultado: "\"\""
-  #    puntuacion: 0
  - container: "nginx_odoo_tarea_nginx_1"
    comandos:
    - nombre: Módulo website en thomson.sxe en HA
