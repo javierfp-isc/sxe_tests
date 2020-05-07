@@ -23,7 +23,7 @@
 
   - name: CALCULAR NOTA
     set_fact:
-     NOTA: "{{ (NOTA | int) + (item.item.1.puntuacion | int)  }}"
+     NOTA: "{{ (NOTA | float) + (item.item.1.puntuacion | float)  }}"
     loop: "{{ TESTRESULT.results }}"
     loop_control:
      label: "PROCESANDO {{ item.item.1.comando }}"
