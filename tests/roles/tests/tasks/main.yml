@@ -9,7 +9,7 @@
       register: TESTRESULT
       changed_when:
        - '"failed" in TESTRESULT.stderr'
-       - result.rc != 0
+       - TESTRESULT.rc != 0
       loop: "{{ lookup('subelements', comandos, 'comandos', {'skip_missing': True}) }}"
       loop_control:
        label: "EJECUTANDO {{ comando }}"
