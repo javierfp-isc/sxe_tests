@@ -51,11 +51,11 @@ Por ejemplo para la unidad de implantación el modelo asociado en Odoo a la real
 
 Antes de nada hay que instalar el **módulo de Odoo sxe_tests** mencionado en el apartado anterior. El módulo se encuentra dentro del directorio **modulo** del repositorio, por tanto deberemos incorporar ese módulo en un directorio accesible desde el **addons_path** de la instancia de Odoo en el que lo vamos a instalar.
 
-Supongamos que nuestro directorio de módulos de Odoo en el anfitrión es ~/odoo. Entonces ejecutamos:
+Supongamos que nuestro directorio de módulos de Odoo en el host es /root/odoo/src. Entonces ejecutamos:
 
-`cp -r modulo ~/odoo/sxe_tests`
+`cp -r modulo /root/odoo/src/sxe_tests`
 
-Por tanto en el addons path del container de Odoo, suponiendo que el directorio **~/odoo del anfitrión está mapeado en /opt/odoo/src**, pondríamos:
+Por tanto en el addons path del container de Odoo, suponiendo que el directorio **/root/odoo/src del host está mapeado en /opt/odoo/src**, pondríamos:
 
 **addons_path=...,/opt/odoo/src/sxe_tests**
 
