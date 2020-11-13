@@ -57,7 +57,7 @@ Supongamos que nuestro directorio de módulos de Odoo en el host es /root/odoo/s
 
 Por tanto en el addons path del container de Odoo, suponiendo que el directorio **/root/odoo/src del host está mapeado en /opt/odoo/src**, pondríamos:
 
-**addons_path=...,/opt/odoo/src/sxe_tests**
+**addons_path=...,/opt/odoo/src/sxe_tests/modulo**
 
 ### Directorio de tests
 
