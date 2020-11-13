@@ -13,7 +13,7 @@ tests:
      resultado: "Running"
      puntuacion: 2
    - nombre: Addons_path correcto
-     comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
+     comando: "cat /opt/odoo/odoo.conf | grep addons_path"
      resultado: "/opt/odoo/src/odoo"
      puntuacion: 1
    - nombre: Módulo ventas instalado
@@ -35,6 +35,6 @@ tests:
      resultado: "\"EXITO\""
      puntuacion: 1
    - nombre: Addons_path OCA modules
-     comando: "cat /opt/odoo/conf/odoo.conf | grep addons_path"
+     comando: "cat /opt/odoo/odoo.conf | grep addons_path"
      resultado: "/opt/odoo/src/server-ux"
      puntuacion: 1
