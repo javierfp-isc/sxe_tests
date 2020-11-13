@@ -6,11 +6,11 @@ Este repositorio contiene herramientas para la realización de tests en las tare
 
 ## Estructura del repositorio
 
-**Este repositorio dispondrá de una rama (branch) para cada tarea a validar,** el nombre de la rama será un identificador ilustrativo de la tarea. Por ejemplo: la branch **implantacion_1** del repositorio será la asociada a la tarea identificada como implantacion_1, etc.
+**Este repositorio dispondrá de una rama (branch) para cada tarea a validar,** el nombre de la rama será un identificador ilustrativo de la tarea. Por ejemplo: la branch **implantacion_2** del repositorio será la asociada a la tarea identificada como implantacion_1, etc.
 
 Por tanto deberemos descargar la branch adecuada. **Por ejemplo para ejecutar los tests de la tarea implantacion_1:**
 
-`git clone -b implantacion_1 git@github.com:javierfp-isc/sxe_tests.git`
+`git clone -b implantacion_2 git@github.com:javierfp-isc/sxe_tests.git`
 
 El mismo procedimiento se aplicaría a las demás tareas descargando la rama adecuada.
 
@@ -57,7 +57,7 @@ Supongamos que nuestro directorio de módulos de Odoo en el anfitrión es ~/odoo
 
 Por tanto en el addons path del container de Odoo, suponiendo que el directorio **~/odoo del anfitrión está mapeado en /opt/odoo/src**, pondríamos:
 
-**addons_path=...,/opt/odoo/src/sxe_tests**
+**addons_path=...,/opt/odoo/src/sxe_tests/modulo**
 
 ### Directorio de tests
 
