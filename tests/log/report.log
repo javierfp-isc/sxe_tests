@@ -1,88 +1,102 @@
 
-***********************************************
-### TEST: Odoo running
+ ***********************************************
+ ### TEST: Odoo running
 
-**CONTAINER:** odoo_1container_odoo_1
+ **CONTAINER:** odoo_1container_odoo_1
 
-**COMANDO:** service odoo.sh status
+ **COMANDO:** service odoo.sh status
 
-**SALIDA:** FINE, 1 ODOO-SERVER is Running.
+ **SALIDA:** FINE, 1 ODOO-SERVER is Running.
 
-**CÓDIGO SALIDA:** 0
+ **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 2
-***********************************************
-### TEST: Addons_path correcto
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!** " >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 2" >> "log/report.log";fi ***********************************************
+ ### TEST: Addons_path correcto
 
-**CONTAINER:** odoo_1container_odoo_1
+ **CONTAINER:** odoo_1container_odoo_1
 
-**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
+ **COMANDO:** cat /opt/odoo/odoo.conf | grep addons_path
 
-**SALIDA:** 
+ **SALIDA:** addons_path =/opt/odoo/src/odoo/addons,/opt/odoo/src/sxe_tests/modulo
 
-**CÓDIGO SALIDA:** 1
+ **CÓDIGO SALIDA:** 0
 
-**ERROR!** 
-***********************************************
-### TEST: Módulo ventas instalado
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!** " >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 1" >> "log/report.log";fi ***********************************************
+ ### TEST: Módulo ventas instalado
 
-**CONTAINER:** odoo_1container_odoo_1
+ **CONTAINER:** odoo_1container_odoo_1
 
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=sale_management
+ **COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=sale_management
 
-**SALIDA:** EXITO
+ **SALIDA:** EXITO
 
-**CÓDIGO SALIDA:** 0
+ **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 2
-***********************************************
-### TEST: Odoo running
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!**   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100     5  100     5    0     0    121      0 --:--:-- --:--:-- --:--:--   121" >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 2" >> "log/report.log";fi ***********************************************
+ ### TEST: Odoo running
 
-**CONTAINER:** odoo_2container_odoo_1
+ **CONTAINER:** odoo_2container_odoo_1
 
-**COMANDO:** service odoo.sh status
+ **COMANDO:** service odoo.sh status
 
-**SALIDA:** FINE, 1 ODOO-SERVER is Running.
+ **SALIDA:** FINE, 1 ODOO-SERVER is Running.
 
-**CÓDIGO SALIDA:** 0
+ **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 2
-***********************************************
-### TEST: Módulo CRM instalado
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!** " >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 2" >> "log/report.log";fi ***********************************************
+ ### TEST: Módulo CRM instalado
 
-**CONTAINER:** odoo_2container_odoo_1
+ **CONTAINER:** odoo_2container_odoo_1
 
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
+ **COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=crm
 
-**SALIDA:** EXITO
+ **SALIDA:** EXITO
 
-**CÓDIGO SALIDA:** 0
+ **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 1
-***********************************************
-### TEST: Módulo website instalado
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!**   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100     5  100     5    0     0     87      0 --:--:-- --:--:-- --:--:--    87" >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 1" >> "log/report.log";fi ***********************************************
+ ### TEST: Módulo website instalado
 
-**CONTAINER:** odoo_2container_odoo_1
+ **CONTAINER:** odoo_2container_odoo_1
 
-**COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
+ **COMANDO:** curl -G "http://localhost:8069/sxe_tests/implantacion" --data-urlencode login=admin --data-urlencode password=abc123. --data-urlencode metodo=test_modulo_instalado --data-urlencode modulo=website
 
-**SALIDA:** EXITO
+ **SALIDA:** EXITO
 
-**CÓDIGO SALIDA:** 0
+ **CÓDIGO SALIDA:** 0
 
-**PUNTUACIÓN:** 1
-***********************************************
-### TEST: Addons_path OCA modules
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!**   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100     5  100     5    0     0     96      0 --:--:-- --:--:-- --:--:--    98" >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 1" >> "log/report.log";fi ***********************************************
+ ### TEST: Addons_path OCA modules
 
-**CONTAINER:** odoo_2container_odoo_1
+ **CONTAINER:** odoo_2container_odoo_1
 
-**COMANDO:** cat /opt/odoo/conf/odoo.conf | grep addons_path
+ **COMANDO:** cat /opt/odoo/odoo.conf | grep addons_path
 
-**SALIDA:** 
+ **SALIDA:** addons_path =/opt/odoo/src/odoo/addons,/opt/odoo/src/server-ux,/opt/odoo/src/sxe_tests/modulo
 
-**CÓDIGO SALIDA:** 1
+ **CÓDIGO SALIDA:** 0
 
-**ERROR!** 
+ END
+ if [ "0" -gt 0 ];then echo "**ERROR!** " >> "log/report.log";fi
+ if [ "0" -eq 0 ]; then echo "**PUNTUACIÓN:** 1" >> "log/report.log";fi
+ ### NOTA DE LA TAREA: 10
 
-### NOTA DE LA TAREA: 8
-
+ END

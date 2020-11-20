@@ -14,11 +14,11 @@
    #URL del servidor gitlab
    GITLABURL: https://gitlab.local   
    #Projectid del gitlab project de entregas
-   GITLABPROJECTID: practicas_si%2Fentregas
+   GITLABPROJECTID: tareas_sxe
    
    #VARIABLES A DEFINIR POR EL USUARIO
    #Pon aquí el nombre para la entrega
-   NOMBREALUMNO: El Gran Wyoming
+   NOMBREALUMNO: Vuestro Nombre
    #Token para enviar a gitlab
    GITLABTOKEN: 9HMCTHQDCJAfeqsPjtzY
 
