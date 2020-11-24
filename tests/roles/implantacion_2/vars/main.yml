@@ -1,6 +1,6 @@
 ---
 # vars file for roles/implantacion_2
-thomson_url: https://thomson.sxe/sxe_tests/implantacion
+thompson_url: https://thompson.sxe/sxe_tests/implantacion
 ritchie_url: https://ritchie.sxe/sxe_tests/implantacion
 login: --data-urlencode login=admin
 password: --data-urlencode password=abc123.
@@ -9,8 +9,8 @@ test_modulo_instalado: --data-urlencode metodo=test_modulo_instalado
 tests:
  - container: "nginx_odoo_tarea_nginx_1"
    comandos:
-   - nombre: Módulo website en thomson.sxe
-     comando: "curl -G --insecure -L  \"{{ thomson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
+   - nombre: Módulo website en thompson.sxe
+     comando: "curl -G --insecure -L  \"{{ thompson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
      resultado: "\"EXITO\""
      puntuacion: 2
    - nombre: Módulo CRM en ritchie.sxe
@@ -31,8 +31,8 @@ tests:
      puntuacion: 0.5
  - container: "nginx_odoo_tarea_nginx_1"
    comandos:
-   - nombre: Módulo website en thomson.sxe en HA
-     comando: "curl -G --insecure -L  \"{{ thomson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
+   - nombre: Módulo website en thompson.sxe en HA
+     comando: "curl -G --insecure -L  \"{{ thompson_url }}\" {{ login }} {{ password }} {{ test_modulo_instalado }} --data-urlencode modulo=website"
      resultado: "\"EXITO\""
      puntuacion: 2
    - nombre: Módulo CRM en ritchie.sxe en HA
